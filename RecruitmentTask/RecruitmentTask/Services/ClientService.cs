@@ -36,6 +36,19 @@ namespace RecruitmentTask.Services
             return await clientRepository.GetAllAsync();
         }
 
+        public async Task<ResponseBaseClass<bool>> RemoveClientAsync(int id)
+        {
+            var isEntityExists = await clientRepository.GetByPredicateAsync(x => x.Id == id);
+            if(!isEntityExists)
+            {
+                return new ErrorResponse<bool>(404, $"Client with id: {id} has not been found");
+            }
+
+            await clientRepository.RemoveAsync(id);
+
+            return new SuccessResponse<bool>(true);
+        }
+
         public async Task<ResponseBaseClass<ClientDto>> UpdateClientAsync(int id, ClientAddEditModel editedClient)
         {
             var entity = await clientRepository.GetByPredicateAsync(x => x.Id == id);

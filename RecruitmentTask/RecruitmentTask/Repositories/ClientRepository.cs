@@ -41,6 +41,11 @@ namespace RecruitmentTask.Repositories
             return _data.Select(d => d.Value).Where(predicate).Any();
         }
 
+        public async Task RemoveAsync(int id)
+        {
+            _data.TryRemove(id, out var result);
+        }
+
         public async Task UpdateAsync(ClientDto client)
         {
             _data.TryGetValue(client.Id, out var result);

@@ -18,7 +18,7 @@ namespace RecruitmentTask.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IList<ClientDto>>> GetAll()
+        public async Task<ActionResult<IList<ClientDto>>> GetAllAsync()
         {
             var result = await clientService.GetClientsAsync();
 
@@ -26,7 +26,7 @@ namespace RecruitmentTask.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClientDto>> Get(int id)
+        public async Task<ActionResult<ClientDto>> GetAsync(int id)
         {
             var result = await clientService.GetByIdAsync(id);
 
@@ -39,7 +39,7 @@ namespace RecruitmentTask.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ClientDto>> Add(ClientAddEditModel client)
+        public async Task<ActionResult<ClientDto>> AddAsync(ClientAddEditModel client)
         {
             if (string.IsNullOrEmpty(client.Email)) return BadRequest($"Field ${nameof(ClientAddEditModel.Email)} must be provided");
             if (string.IsNullOrEmpty(client.FirstName)) return BadRequest($"Field ${nameof(ClientAddEditModel.FirstName)} must be provided");
@@ -51,7 +51,7 @@ namespace RecruitmentTask.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ClientDto>> Update([FromQuery]int id, ClientAddEditModel client)
+        public async Task<ActionResult<ClientDto>> UpdateAsync([FromQuery]int id, ClientAddEditModel client)
         {
             //I assumed that frontend sent all, even not changed properties
             if (string.IsNullOrEmpty(client.Email)) return BadRequest($"Field ${nameof(ClientAddEditModel.Email)} must be provided");
@@ -62,6 +62,14 @@ namespace RecruitmentTask.Controllers
 
             return GetParsedResult(result);
 
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveAsync([FromQuery]int id)
+        {
+            var result = await clientService.RemoveClientAsync(id);
+
+            return Ok();
         }
 
         private ActionResult<ClientDto> GetParsedResult(ResponseBaseClass<ClientDto> response)

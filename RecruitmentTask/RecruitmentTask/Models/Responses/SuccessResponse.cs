@@ -1,6 +1,6 @@
 ﻿namespace RecruitmentTask.Models.Responses
 {
-    public class SuccessResponse<T> : ResponseBaseClass<T> where T : class
+    public class SuccessResponse<T> : ResponseBaseClass<T>
     {
         public T Result { get; set; }
 

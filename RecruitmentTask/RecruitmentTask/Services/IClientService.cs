@@ -9,5 +9,6 @@ namespace RecruitmentTask.Services
         Task<ClientDto?> GetByIdAsync(int id);
         Task<ResponseBaseClass<ClientDto>> AddClientAsync(ClientAddEditModel newClient);
         Task<ResponseBaseClass<ClientDto>> UpdateClientAsync(int id, ClientAddEditModel editedClient);
+        Task<ResponseBaseClass<bool>> RemoveClientAsync(int id);
     }
 }

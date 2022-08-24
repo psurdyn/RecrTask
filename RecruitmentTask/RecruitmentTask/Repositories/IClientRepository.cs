@@ -9,5 +9,6 @@ namespace RecruitmentTask.Repositories
         Task<bool> GetByPredicateAsync(Func<ClientDto, bool> predicate);
         Task<ClientDto> AddAsync(ClientAddEditModel newClient);
         Task UpdateAsync(ClientDto client);
+        Task RemoveAsync(int id);
     }
 }

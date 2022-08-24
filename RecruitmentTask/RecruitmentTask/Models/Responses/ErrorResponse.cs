@@ -1,6 +1,6 @@
 ﻿namespace RecruitmentTask.Models.Responses
 {
-    public class ErrorResponse<T> : ResponseBaseClass<T> where T : class
+    public class ErrorResponse<T> : ResponseBaseClass<T>
     {
         public Exception? Exception { get; set; }
         public string? Message { get; set; }
