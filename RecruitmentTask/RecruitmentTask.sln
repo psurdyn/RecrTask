@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentTask", "RecruitmentTask\RecruitmentTask.csproj", "{E2F39E08-5289-428F-A8F5-0F98064574BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecruitmentTasksTests", "RecruitmentTasksTests\RecruitmentTasksTests.csproj", "{842AF238-007A-4C0F-8283-12062B7D1B1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E2F39E08-5289-428F-A8F5-0F98064574BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2F39E08-5289-428F-A8F5-0F98064574BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2F39E08-5289-428F-A8F5-0F98064574BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842AF238-007A-4C0F-8283-12062B7D1B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842AF238-007A-4C0F-8283-12062B7D1B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842AF238-007A-4C0F-8283-12062B7D1B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842AF238-007A-4C0F-8283-12062B7D1B1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
