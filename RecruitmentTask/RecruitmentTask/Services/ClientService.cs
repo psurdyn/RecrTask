@@ -7,10 +7,12 @@ namespace RecruitmentTask.Services
     public class ClientService : IClientService
     {
         private readonly IClientRepository clientRepository;
+        private readonly ILogger _logger;
 
-        public ClientService(IClientRepository clientRepository)
+        public ClientService(IClientRepository clientRepository, ILogger<ClientService> logger)
         {
             this.clientRepository = clientRepository;
+            _logger = logger;
         }
 
         public async Task<ResponseBaseClass<ClientDto>> AddClientAsync(ClientAddEditModel newClient)
@@ -18,6 +20,7 @@ namespace RecruitmentTask.Services
             var clientWithTHeSameEmail = await clientRepository.GetByPredicateAsync(x => x.Email == newClient.Email);
             if (clientWithTHeSameEmail)
             {
+                _logger.LogWarning("There was an attempt to add a new client with the same email {email}", newClient.Email);
                 return new ErrorResponse<ClientDto>(400, new ArgumentException($"Client with the same email address already exists"));
             }
 
